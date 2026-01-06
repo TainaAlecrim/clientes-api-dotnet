@@ -35,6 +35,9 @@ ClientesApi
 ├── Migrations # Migrations do banco de dados
 └── Program.cs # Configuração da aplicação
 
+---
+
+
 📚 Aprendizados
 
 Criação de APIs REST com ASP.NET Core
@@ -45,6 +48,9 @@ Separação de responsabilidades com DTOs
 
 Versionamento de código com Git e GitHub
 
+---
+
+
 ✨ Próximas melhorias
 
 Validação de dados
@@ -54,6 +60,8 @@ Paginação no GET
 AutoMapper
 
 Versionamento de API
+
+---
 
 
 👩‍💻 Autora
