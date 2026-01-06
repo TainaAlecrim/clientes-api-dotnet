@@ -37,7 +37,7 @@ ClientesApi
 ├── Data             # DbContext e configuração do EF Core
 ├── Migrations       # Migrations do banco de dados
 └── Program.cs       # Configuração da aplicação
-
+```
 
 
 📚 Aprendizados
