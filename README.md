@@ -26,3 +26,39 @@ Projeto criado com foco em aprendizado prático e portfólio.
 
 ## 📁 Estrutura do Projeto
 
+ClientesApi
+│
+├── Controllers # Endpoints da API
+├── Models # Entidades do domínio
+├── Dtos # Objetos de transferência de dados
+├── Data # DbContext e configuração do EF Core
+├── Migrations # Migrations do banco de dados
+└── Program.cs # Configuração da aplicação
+
+📚 Aprendizados
+
+Criação de APIs REST com ASP.NET Core
+
+Uso do Entity Framework Core com SQLite
+
+Separação de responsabilidades com DTOs
+
+Versionamento de código com Git e GitHub
+
+✨ Próximas melhorias
+
+Validação de dados
+
+Paginação no GET
+
+AutoMapper
+
+Versionamento de API
+
+
+👩‍💻 Autora
+
+Tainá Alecrim
+Desenvolvedora .NET em formação
+🔗 GitHub: TainaAlecrim
+
