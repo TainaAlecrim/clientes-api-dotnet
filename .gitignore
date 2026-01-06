@@ -1,0 +1,12 @@
+.vs/
+bin/
+obj/
+
+*.user
+*.suo
+
+clientes.db
+clientes.db-shm
+clientes.db-wal
+
+appsettings.Development.json
