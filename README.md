@@ -40,26 +40,26 @@ ClientesApi
 
 📚 Aprendizados
 
-Criação de APIs REST com ASP.NET Core
+ - Criação de APIs REST com ASP.NET Core
 
-Uso do Entity Framework Core com SQLite
+ - Uso do Entity Framework Core com SQLite
 
-Separação de responsabilidades com DTOs
+ - Separação de responsabilidades com DTOs
 
-Versionamento de código com Git e GitHub
+ - Versionamento de código com Git e GitHub
 
 ---
 
 
 ✨ Próximas melhorias
 
-Validação de dados
+ - Validação de dados
 
-Paginação no GET
+ - Paginação no GET
 
-AutoMapper
+ - AutoMapper
 
-Versionamento de API
+ - Versionamento de API
 
 ---
 
