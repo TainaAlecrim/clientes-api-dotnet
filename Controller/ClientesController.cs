@@ -1,4 +1,5 @@
-﻿using ClientesApi.Data;
+﻿using AutoMapper;
+using ClientesApi.Data;
 using ClientesApi.Dtos;
 using ClientesApi.DTOs;
 using ClientesApi.Models;
@@ -14,11 +15,13 @@ public class ClientesController : ControllerBase
 {
     private readonly AppDbContext _context;
     private readonly ILogger<ClientesController> _logger;
+    private readonly IMapper _mapper;
 
-    public ClientesController(AppDbContext context, ILogger<ClientesController> logger)
+    public ClientesController(AppDbContext context, ILogger<ClientesController> logger, IMapper mapper)
     {
         _context = context;
         _logger = logger;
+        _mapper = mapper;
     }
 
     [HttpGet]
@@ -49,52 +52,31 @@ public class ClientesController : ControllerBase
             return NotFound();
         }
 
-        var response = new ClienteResponse
-        {
-            Id = cliente.Id,
-            Nome = cliente.Nome,
-            Email = cliente.Email,
-            Telefone = cliente.Telefone,
-            CriadoEm = DateTime.Now
-        };
+        var response = _mapper.Map<ClienteResponse>(cliente);
 
         _logger.LogWarning("Cliente com id {id} encontrado", id);
         return Ok(cliente);
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post(ClienteRequest clienteDto)
+    public async Task<IActionResult> Post(ClienteRequest request)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        var cliente = new Cliente
-        {
-            Nome = clienteDto.Nome,
-            Email = clienteDto.Email,
-            Telefone = clienteDto.Telefone,
-            DataCadastro = DateTime.Now
-        };
+        var cliente = _mapper.Map<Cliente>(request);
 
         _context.Clientes.Add(cliente);
-
-        await _context.SaveChangesAsync();
-
-        var response = new ClienteResponse
-        {
-            Id = cliente.Id,
-            Nome = cliente.Nome,
-            Email = cliente.Email,
-            Telefone = cliente.Telefone,
-            CriadoEm = DateTime.Now
-        };
+         await _context.SaveChangesAsync();
+        
+        var response = _mapper.Map<ClienteResponse>(cliente);
 
         _logger.LogWarning("Cliente com id {cliente} encontrado", cliente);
         return CreatedAtAction(nameof(Get), new { id = cliente.Id }, cliente);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Put(int id, ClienteRequest clienteDto)
+    public async Task<IActionResult> Put(int id, ClienteRequest request)
     {
         var cliente = await _context.Clientes.FindAsync(id);
 
@@ -104,9 +86,7 @@ public class ClientesController : ControllerBase
             return NotFound();
         }
 
-        cliente.Nome = clienteDto.Nome;
-        cliente.Telefone = clienteDto.Telefone;
-        cliente.Email = clienteDto.Email;
+        _mapper.Map(request, cliente);
 
         await _context.SaveChangesAsync();
 
