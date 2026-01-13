@@ -3,11 +3,13 @@ using ClientesApi.Data;
 using ClientesApi.Dtos;
 using ClientesApi.DTOs;
 using ClientesApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace ClientesApi.Controllers;
+
 
 [ApiController]
 [Route("api/[controller]")]
@@ -24,6 +26,7 @@ public class ClientesController : ControllerBase
         _mapper = mapper;
     }
 
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
@@ -39,6 +42,7 @@ public class ClientesController : ControllerBase
         return Ok(cliente);
     }
 
+    [Authorize]
     [HttpGet("{id}")]
     public async Task<IActionResult> Get(int id)
     {
@@ -58,6 +62,7 @@ public class ClientesController : ControllerBase
         return Ok(cliente);
     }
 
+    [Authorize(Roles = "Admin")]
     [HttpPost]
     public async Task<IActionResult> Post(ClienteRequest request)
     {
@@ -75,6 +80,7 @@ public class ClientesController : ControllerBase
         return CreatedAtAction(nameof(Get), new { id = cliente.Id }, cliente);
     }
 
+    [Authorize(Roles = "Admin")]
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, ClienteRequest request)
     {
@@ -94,6 +100,7 @@ public class ClientesController : ControllerBase
         return NoContent();
     }
 
+    [Authorize(Roles = "Admin")]
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
