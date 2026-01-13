@@ -74,8 +74,8 @@ ClientesApi
 3. Enviar token no header: Authorization: Bearer <seu_token>
 4. Acessar endpoints protegidos por roles
  
-
-📚 Aprendizados
+ --- 
+## 📚 Aprendizados
 
 - Durante o desenvolvimento foram estudados e aplicados:
 - Criação de APIs REST com ASP.NET Core
@@ -87,7 +87,8 @@ ClientesApi
 - Integração do JWT ao Swagger
 
 
-✨ Próximas melhorias
+---
+##✨ Próximas melhorias
 
 - Validação de dados
 - Paginação no GET
@@ -95,7 +96,8 @@ ClientesApi
 - Refresh token
 - Versionamento de API
 
-👩‍💻 Autora
+---
+##👩‍💻 Autora
 
 Tainá Alecrim
 Desenvolvedora .NET em formação
