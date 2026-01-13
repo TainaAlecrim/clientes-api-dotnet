@@ -88,7 +88,7 @@ ClientesApi
 
 
 ---
-##✨ Próximas melhorias
+## ✨ Próximas melhorias
 
 - Validação de dados
 - Paginação no GET
@@ -97,7 +97,7 @@ ClientesApi
 - Versionamento de API
 
 ---
-##👩‍💻 Autora
+## 👩‍💻 Autora
 
 Tainá Alecrim
 Desenvolvedora .NET em formação
